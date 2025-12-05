@@ -4,9 +4,10 @@ import { ThemeToggle } from '../ui/ThemeToggle';
 
 interface HeaderProps {
     onAgentClick: () => void;
+    forceDark?: boolean;
 }
 
-const Header: React.FC<HeaderProps> = ({ onAgentClick }) => {
+const Header: React.FC<HeaderProps> = ({ onAgentClick, forceDark = false }) => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     const menuItems = [
@@ -16,28 +17,33 @@ const Header: React.FC<HeaderProps> = ({ onAgentClick }) => {
         { label: 'Contato', icon: Mail, href: '#contact' }
     ];
 
+    const textColor = forceDark ? 'text-white' : 'text-black dark:text-white';
+    const borderColor = forceDark ? 'border-white/20' : 'border-black/10 dark:border-white/20';
+    const iconColor = forceDark ? 'text-white fill-white' : 'text-black dark:text-white fill-black dark:fill-white';
+    const buttonHover = forceDark ? 'hover:bg-white/10' : 'hover:bg-black/5 dark:hover:bg-white/10';
+
     return (
         <header className="absolute top-0 left-0 w-full p-8 z-50 flex justify-between items-center">
             <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full overflow-hidden border border-black/10 dark:border-white/20">
+                <div className={`w-12 h-12 rounded-full overflow-hidden border ${borderColor}`}>
                     <img src="https://github.com/felipesouzadsgn.png" alt="Profile" className="w-full h-full object-cover" />
                 </div>
                 <div>
-                    <h3 className="text-black dark:text-white font-bold text-sm">Felipe Souza</h3>
+                    <h3 className={`${textColor} font-bold text-sm`}>Felipe Souza</h3>
                     <p className="text-gray-500 text-xs">@felipesouzadsgn</p>
                 </div>
             </div>
 
             <div className="absolute left-1/2 transform -translate-x-1/2 hidden md:block">
                 <div className="w-10 h-10 flex items-center justify-center">
-                    <Zap size={32} className="text-black dark:text-white fill-black dark:fill-white" />
+                    <Zap size={32} className={iconColor} />
                 </div>
             </div>
 
             <div className="flex items-center gap-4">
                 <ThemeToggle />
                 <button
-                    className="p-2 text-black dark:text-white hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition-colors"
+                    className={`p-2 ${textColor} ${buttonHover} rounded-full transition-colors`}
                     onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 >
                     {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}

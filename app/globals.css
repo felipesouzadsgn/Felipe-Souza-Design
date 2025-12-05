@@ -30,3 +30,12 @@ html {
 .preserve-3d {
   transform-style: preserve-3d;
 }
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

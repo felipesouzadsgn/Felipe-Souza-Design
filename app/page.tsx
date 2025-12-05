@@ -33,10 +33,10 @@ const App: React.FC = () => {
     }
 
     return (
-        <div className="min-h-screen bg-white dark:bg-[#020202] text-gray-900 dark:text-gray-200 font-sans selection:bg-black/10 dark:selection:bg-white/20 selection:text-black dark:selection:text-white overflow-x-hidden relative transition-colors duration-300">
+        <div className="min-h-screen font-sans selection:bg-black/10 dark:selection:bg-white/20 selection:text-black dark:selection:text-white overflow-x-hidden relative transition-colors duration-300" style={{ backgroundColor: '#020202', color: '#e5e5e5' }}>
             {/* Global Ambient Cursor Light */}
             <div
-                className="fixed w-[800px] h-[800px] bg-black/5 dark:bg-white/5 rounded-full blur-[120px] pointer-events-none z-0 transform -translate-x-1/2 -translate-y-1/2 mix-blend-multiply dark:mix-blend-screen transition-transform duration-100 ease-out"
+                className="fixed w-[800px] h-[800px] bg-white/5 rounded-full blur-[120px] pointer-events-none z-0 transform -translate-x-1/2 -translate-y-1/2 mix-blend-screen transition-transform duration-100 ease-out"
                 style={{ left: mousePosition.x, top: mousePosition.y }}
             />
 
@@ -56,7 +56,7 @@ const App: React.FC = () => {
                 </a>
             </div>
 
-            <Header onAgentClick={() => setCurrentView('agent')} />
+            <Header onAgentClick={() => setCurrentView('agent')} forceDark={true} />
 
             <main>
                 <Hero />
@@ -68,7 +68,7 @@ const App: React.FC = () => {
                 <Contact />
             </main>
 
-            <Footer />
+            <Footer forceDark={true} />
         </div>
     );
 };
