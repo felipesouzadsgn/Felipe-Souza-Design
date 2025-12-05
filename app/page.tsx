@@ -3,8 +3,6 @@
 import React, { useState, useEffect } from 'react';
 import { MessageSquare } from 'lucide-react';
 import AgentDesign from '../components/AgentDesign';
-import Header from '../components/layout/Header';
-import Footer from '../components/layout/Footer';
 import Hero from '../components/sections/Hero';
 import AboutBento from '../components/AboutBento';
 import Projects from '../components/sections/Projects';
@@ -14,11 +12,20 @@ import Testimonials from '../components/sections/Testimonials';
 import Contact from '../components/sections/Contact';
 import { SOCIAL_LINKS } from '../lib/constants';
 
+import { useSearchParams } from 'next/navigation';
+
 type ViewMode = 'landing' | 'agent';
 
 const App: React.FC = () => {
     const [currentView, setCurrentView] = useState<ViewMode>('landing');
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+    const searchParams = useSearchParams();
+
+    useEffect(() => {
+        if (searchParams.get('view') === 'agent') {
+            setCurrentView('agent');
+        }
+    }, [searchParams]);
 
     useEffect(() => {
         const handleMouseMove = (e: MouseEvent) => {
@@ -46,17 +53,17 @@ const App: React.FC = () => {
                     href={`https://wa.me/${SOCIAL_LINKS.whatsapp}`}
                     target="_blank"
                     rel="noreferrer"
-                    className="group relative flex items-center justify-center p-4 bg-[#25D366] hover:bg-[#128C7E] text-white rounded-2xl shadow-lg transition-all hover:scale-105"
+                    className="group relative flex items-center justify-center p-4 bg-white hover:bg-gray-200 text-black rounded-2xl shadow-lg transition-all hover:scale-105"
                     aria-label="Contato via WhatsApp"
                 >
-                    <MessageSquare size={28} className="fill-white" />
-                    <span className="absolute right-full mr-4 bg-white dark:bg-black border border-black/10 dark:border-white/10 text-black dark:text-white px-4 py-2 rounded-xl text-sm font-bold opacity-0 group-hover:opacity-100 transition-all whitespace-nowrap translate-x-4 group-hover:translate-x-0 pointer-events-none shadow-lg">
+                    <MessageSquare size={28} />
+                    <span className="absolute right-full mr-4 bg-black border border-white/10 text-white px-4 py-2 rounded-xl text-sm font-bold opacity-0 group-hover:opacity-100 transition-all whitespace-nowrap translate-x-4 group-hover:translate-x-0 pointer-events-none shadow-lg">
                         Fale comigo agora
                     </span>
                 </a>
             </div>
 
-            <Header onAgentClick={() => setCurrentView('agent')} forceDark={true} />
+
 
             <main>
                 <Hero />
@@ -68,7 +75,7 @@ const App: React.FC = () => {
                 <Contact />
             </main>
 
-            <Footer forceDark={true} />
+
         </div>
     );
 };

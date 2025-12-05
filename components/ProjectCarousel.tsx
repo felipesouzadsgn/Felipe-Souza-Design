@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, useAnimation, useMotionValue, animate } from 'framer-motion';
+import { motion, useMotionValue, animate } from 'framer-motion';
 import Link from 'next/link';
 import { PROJECTS } from '../lib/constants';
 import { ArrowUpRight, Figma, Code, Smartphone, Layout, Cpu, ChevronLeft, ChevronRight } from 'lucide-react';
@@ -47,7 +47,6 @@ const ProjectCarousel = () => {
     }, [x, contentWidth, isHovered]);
 
     const handleDragEnd = () => {
-        // Optional: Add snap logic or momentum here if needed
         setIsHovered(false);
     };
 
@@ -73,16 +72,16 @@ const ProjectCarousel = () => {
     };
 
     return (
-        <div className="w-full py-20 overflow-hidden bg-transparent relative group/carousel transition-colors">
+        <div className="w-full py-20 overflow-hidden bg-transparent relative group/carousel">
 
             {/* Header / Filters */}
             <div className="text-center mb-12 relative z-10">
-                <h2 className="text-4xl font-bold text-black dark:text-white mb-8">Select Works</h2>
+                <h2 className="text-4xl font-bold text-white mb-8">Select Works</h2>
                 <div className="flex justify-center gap-4 flex-wrap">
                     {['Branding', 'UI Design', 'Website'].map((filter) => (
                         <button
                             key={filter}
-                            className="px-6 py-2 rounded-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 text-gray-600 dark:text-gray-400 text-sm hover:bg-black/10 dark:hover:bg-white/10 hover:text-black dark:hover:text-white transition-all"
+                            className="px-6 py-2 rounded-full bg-white/5 border border-white/10 text-gray-400 text-sm hover:bg-white/10 hover:text-white transition-all"
                         >
                             {filter}
                         </button>
@@ -113,7 +112,7 @@ const ProjectCarousel = () => {
                         <Link
                             href={`/projects/${project.id}`}
                             key={`${project.id}-${index}`}
-                            className="relative group shrink-0 w-[400px] aspect-[4/5] rounded-3xl overflow-hidden bg-gray-100 dark:bg-[#0A0A0A]"
+                            className="relative group shrink-0 w-[400px] aspect-[4/5] rounded-3xl overflow-hidden bg-[#0A0A0A]"
                             draggable={false}
                         >
                             <motion.div
@@ -161,13 +160,13 @@ const ProjectCarousel = () => {
             <div className="flex justify-center gap-4 mt-12 opacity-0 group-hover/carousel:opacity-100 transition-opacity duration-300">
                 <button
                     onClick={scrollLeft}
-                    className="p-4 rounded-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 text-black dark:text-white hover:bg-black/10 dark:hover:bg-white/10 hover:scale-110 transition-all"
+                    className="p-4 rounded-full bg-white/5 border border-white/10 text-white hover:bg-white/10 hover:scale-110 transition-all"
                 >
                     <ChevronLeft size={24} />
                 </button>
                 <button
                     onClick={scrollRight}
-                    className="p-4 rounded-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 text-black dark:text-white hover:bg-black/10 dark:hover:bg-white/10 hover:scale-110 transition-all"
+                    className="p-4 rounded-full bg-white/5 border border-white/10 text-white hover:bg-white/10 hover:scale-110 transition-all"
                 >
                     <ChevronRight size={24} />
                 </button>

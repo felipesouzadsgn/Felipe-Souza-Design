@@ -20,7 +20,7 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({
         <Reveal>
             <div className={`mb-16 ${align === 'center' ? 'text-center' : 'text-left'} ${className}`}>
                 {subtitle && (
-                    <span className="text-purple-500 font-mono text-sm tracking-widest uppercase mb-4 block">
+                    <span className="text-gray-500 font-mono text-sm tracking-widest uppercase mb-4 block">
                         {subtitle}
                     </span>
                 )}
