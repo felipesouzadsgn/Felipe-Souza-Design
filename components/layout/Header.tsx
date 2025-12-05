@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import { Zap, Menu, X, Layers, Briefcase, Cpu, Mail, Bot } from 'lucide-react';
+import { Zap, Menu, X, Layers, Briefcase, Cpu, Mail, Bot, FileText } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
 interface HeaderProps {
@@ -24,6 +24,7 @@ const Header: React.FC<HeaderProps> = ({ onAgentClick }) => {
     const menuItems = [
         { label: 'Expertise', icon: Layers, href: '#expertise' },
         { label: 'Projetos', icon: Briefcase, href: '#projects' },
+        { label: 'Blog', icon: FileText, href: '/blog' },
         { label: 'Processo', icon: Cpu, href: '#process' },
         { label: 'Contato', icon: Mail, href: '#contact' }
     ];

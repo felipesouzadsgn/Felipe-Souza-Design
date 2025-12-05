@@ -13,8 +13,7 @@ import {
     MapPin,
     Sparkles
 } from 'lucide-react';
-import Header from '../../components/layout/Header';
-import Footer from '../../components/layout/Footer';
+
 
 const LinksPage = () => {
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -121,7 +120,7 @@ const LinksPage = () => {
                 <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10" />
             </div>
 
-            <Header onAgentClick={() => { }} forceDark={true} />
+
 
             <main className="relative z-10 min-h-screen flex flex-col items-center justify-center py-32 px-6">
 
@@ -296,8 +295,8 @@ const LinksPage = () => {
                             target={link.href.startsWith('/') ? '_self' : '_blank'}
                             rel={link.href.startsWith('/') ? '' : 'noreferrer'}
                             className={`group relative flex items-center gap-4 p-4 rounded-2xl border border-white/10 backdrop-blur-2xl overflow-hidden transition-all hover:scale-[1.02] active:scale-[0.98] ${link.highlight
-                                    ? 'bg-white/10 border-white/20'
-                                    : 'bg-white/5 hover:bg-white/10'
+                                ? 'bg-white/10 border-white/20'
+                                : 'bg-white/5 hover:bg-white/10'
                                 }`}
                         >
                             {/* Icon Box */}
@@ -381,7 +380,7 @@ const LinksPage = () => {
 
             </main>
 
-            <Footer forceDark={true} />
+
         </div>
     );
 };

@@ -48,7 +48,7 @@ const ChatSimulation = () => {
                     >
                         <div className={`
               w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0
-              ${msg.role === 'bot' ? 'bg-purple-600/20 text-purple-400' : 'bg-white/10 text-white'}
+              ${msg.role === 'bot' ? 'bg-white/10 text-white' : 'bg-white/5 text-gray-300'}
             `}>
                             {msg.role === 'bot' ? <Bot size={16} /> : <User size={16} />}
                         </div>
