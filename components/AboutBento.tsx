@@ -7,17 +7,13 @@ import ExperienceCard from './ExperienceCard';
 import EducationCard from './EducationCard';
 import TimelineCard from './TimelineCard';
 import SectionWrapper from './ui/SectionWrapper';
-import SectionHeader from './ui/SectionHeader';
+import ProfileHeader from './ProfileHeader';
 import { SOCIAL_LINKS } from '../lib/constants';
 
 const AboutBento: React.FC = () => {
     return (
         <SectionWrapper id="about" className="bg-white dark:bg-[#020202] transition-colors duration-300">
-            <SectionHeader
-                title="Sobre Mim"
-                subtitle="Minha Jornada"
-                description="Designer apaixonado por código e desenvolvedor obcecado por design."
-            />
+            <ProfileHeader />
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[minmax(180px,auto)]">
 
