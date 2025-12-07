@@ -164,7 +164,7 @@ const ProposalPage = () => {
 
     return (
         <div className="min-h-screen font-sans overflow-x-hidden" style={{ backgroundColor: '#000000', color: '#ffffff' }}>
-            <Header onAgentClick={() => { }} forceDark={true} />
+            <Header onAgentClick={() => { }} />
 
             <main className="relative z-10">
                 {/* Hero Section */}
@@ -462,7 +462,7 @@ const ProposalPage = () => {
                 </section>
             </main>
 
-            <Footer forceDark={true} />
+            <Footer />
         </div>
     );
 };

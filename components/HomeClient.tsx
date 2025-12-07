@@ -10,19 +10,13 @@ import AgentPromo from '../components/sections/AgentPromo';
 import Workflow from '../components/sections/Workflow';
 import Testimonials from '../components/sections/Testimonials';
 import Contact from '../components/sections/Contact';
-import BlogSection from '../components/sections/BlogSection';
 import { SOCIAL_LINKS } from '../lib/constants';
-import { BlogPost } from '../lib/blog';
 
 import { useSearchParams } from 'next/navigation';
 
 type ViewMode = 'landing' | 'agent';
 
-interface HomeClientProps {
-    posts: BlogPost[];
-}
-
-const HomeClient: React.FC<HomeClientProps> = ({ posts }) => {
+const HomeClient: React.FC = () => {
     const [currentView, setCurrentView] = useState<ViewMode>('landing');
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
     const searchParams = useSearchParams();
@@ -76,7 +70,6 @@ const HomeClient: React.FC<HomeClientProps> = ({ posts }) => {
                 <AgentPromo onAgentClick={() => setCurrentView('agent')} />
                 <Workflow />
                 <Testimonials />
-                <BlogSection posts={posts} />
                 <Contact />
             </main>
         </div>
